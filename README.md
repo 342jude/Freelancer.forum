@@ -7,7 +7,7 @@ The visitor also finds a message that displays the average starting price of all
 A few seconds later, a new listing appears for a freelancer named Carol, who is a programmer and has a starting price of $70. The average starting price is updated to $50.
 New freelancers continue to appear every few seconds, and the average starting price is updated accordingly.
 
-#### Getting Started
+## Getting Started
 There is no starter code for this workshop. However, the solution is very similar to the Shapes guided practice. You are encouraged to use that repository as a starting point for this workshop.
 
 Create a new repository named Unit2.FreelancerForum on GitHub and clone it down.
