@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+}
+td {
+  padding: 0 1em;
+  text-align: center;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#forumContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: scrow;
+}
