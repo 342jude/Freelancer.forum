@@ -28,7 +28,7 @@ function updateAveragePrice() {
   for (let i = 0; i < state.freelancers.length; ++i) {
     const currentFreelancer = state.freelancers[i];
 
-    total += currentFreelancer.price;
+    total += parseInt(currentFreelancer.price);
   }
   state.averagePrice = Math.round(total / state.freelancers.length);
 }
@@ -48,7 +48,7 @@ function currentFreelancerTableRow(freelancer) {
   occupationData.textContent = freelancer.occupation;
   priceData.textContent = freelancer.price;
 
-  tr.append(nameData.occupationData, priceData);
+  tr.append(nameData, occupationData, priceData);
 
   return tr;
 }
@@ -64,7 +64,7 @@ function createTableHeaders() {
   occupationData.textContent = "Occupation";
   priceData.textContent = "Starting Price";
 
-  tr.append(nameData.occupationData, priceData);
+  tr.append(nameData, occupationData, priceData);
 
   return tr;
 }
@@ -82,23 +82,22 @@ function render() {
 
   const table = document.getElementById("freelancerTable");
 
-  table.apprendChild(createTableHeaders());
+  table.appendChild(createTableHeaders());
 
   for (let i = 0; i < state.freelancers.length; ++i) {
     const currentFreelancer = state.freelancers[i];
 
-    const row = createFreelancerTableRow(currentFreelancer);
+    const row = currentFreelancerTableRow(currentFreelancer); //corrected
 
     table.appendChild(row);
   }
+
   updateAveragePrice();
 
   const priceText = document.getElementById("averagePrice");
 
   priceText.textContent = `The average starting price is $${state.averagePrice}`;
 }
-
-render();
 
 const randomNames = ["Alice", "Bob", "Carol", "Jude", "Sham", "John"];
 const randomOcupations = [
@@ -112,9 +111,9 @@ const randomOcupations = [
 
 function createRandomFreelancer() {
   const randomName =
-    randomNames[Math.floor((Math.random() * randomNames) / length)];
+    randomNames[Math.floor(Math.random() * randomNames.length)];
   const randomOcupation =
-    randomOcupations[Math.floor((Math.random() * randomOcupations) / length)];
+    randomOcupations[Math.floor(Math.random() * randomOcupations.length)];
 
   const randomPrice = Math.floor(Math.random() * 150);
 
